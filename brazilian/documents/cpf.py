@@ -65,7 +65,7 @@ class CPF:
     
     @property
     def region_acronym(self) -> str:
-        """Retorna a região literal (ex: 'Sao Paulo', 'Minas Gerais', etc.)."""
+        """Retorna a região em sigla (ex: 'SP', 'MG', etc.)."""
         if len(self.value) < 9 or not self.value.isdigit():
             return None
 
