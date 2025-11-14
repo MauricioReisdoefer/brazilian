@@ -1,7 +1,7 @@
 import random
 import re
 from dataclasses import dataclass
-from .errors.invalid_cpf_error import InvalidCPFError
+from ..errors.invalid_cpf_error import InvalidCPFError
 
 def _only_digits(value: str) -> str:
     return re.sub(r'\D', '', str(value or ''))
@@ -28,7 +28,7 @@ class CPF:
         clean = _only_digits(value)
         object.__setattr__(self, "_value", clean)
         if strict:
-            self.validate(raise_error=True)
+            self.self_validate(raise_error=True)
     
     @property
     def value(self) -> str:
@@ -40,8 +40,8 @@ class CPF:
     
     @property
     def is_valid(self) -> bool:
-        return CPF.validate_value(self.value)
-    
+        return CPF.validate(self.value)
+ 
     @property
     def region(self) -> str:
         """Retorna a região literal (ex: 'Sao Paulo', 'Minas Gerais', etc.)."""
@@ -98,19 +98,19 @@ class CPF:
             return v
         return f"***.***.***-{v[9:11]}"
     
-    def validate(self, *, raise_error: bool = False) -> bool:
-        valid = CPF.validate_value(self.value)
+    def self_validate(self, *, raise_error: bool = False) -> bool:
+        valid = CPF.validate(self.value)
         if not valid and raise_error:
             raise InvalidCPFError(f"Invalid CPF: {self.formatted or self.value!r}")
         return valid
     
-    def format(self) -> str:
+    def self_format(self) -> str:
         return self.formatted
     
-    def mask(self) -> str:
+    def self_mask(self) -> str:
         return self.masked
     
-    def to_dict(self) -> dict:
+    def self_to_dict(self) -> dict:
         return {
             "value": self.value,
             "formatted": self.formatted,
@@ -124,15 +124,24 @@ class CPF:
         return _only_digits(value)
     
     @staticmethod
-    def validate_value(value: str) -> bool:
+    def validate(value: str, raise_error: bool = False) -> bool:
         v = _only_digits(value)
-        if len(v) != 11:
+
+        if len(v) != 11 or _is_repeated_digits(v):
+            if raise_error:
+                raise InvalidCPFError(f"Invalid CPF: {value!r}")
             return False
-        if _is_repeated_digits(v):
-            return False
+
         base = v[:9]
         expected = _calculate_check_digits(base)
-        return v[9:11] == expected
+
+        valid = v[9:11] == expected
+
+        if not valid and raise_error:
+            raise InvalidCPFError(f"Invalid CPF: {value!r}")
+        
+        return valid
+
     
     @staticmethod
     def generate(formatted: bool = False) -> "CPF":
@@ -148,6 +157,11 @@ class CPF:
         gen = CPF.generate(formatted=formatted)
         return gen if isinstance(gen, str) else gen.value
     
+    @staticmethod
+    def format(value: str):
+        self_cpf = CPF(value)
+        return self_cpf.formatted
+        
     def __str__(self):
         return self.formatted or self.value
     
