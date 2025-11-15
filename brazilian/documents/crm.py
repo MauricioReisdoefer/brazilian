@@ -105,14 +105,16 @@ class CRM:
     @property
     def uf(self) -> str:
         """UF associada ao CRM."""
-        return UF_ACRONYM_TO_UF[self.uf_acronym]
+        if not self.uf_acronym:
+            return None
+        return UF_ACRONYM_TO_UF.get(self.uf_acronym)
+
 
     @property
     def region(self) -> str:
-        """Retorna 'Sudeste', 'Sul', etc."""
-        if not self.uf:
+        if not self.uf_acronym:
             return None
-        return UF_TO_REGION.get(self.uf)
+        return UF_TO_REGION.get(self.uf_acronym)
 
     @property
     def formatted(self) -> str:
