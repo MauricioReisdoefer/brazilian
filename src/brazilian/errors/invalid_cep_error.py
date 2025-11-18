@@ -1,0 +1,2 @@
+class InvalidCEPError(ValueError):
+    pass
