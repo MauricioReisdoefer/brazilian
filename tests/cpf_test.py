@@ -1,6 +1,6 @@
 import pytest
-from brazilian.documents.cpf import CPF
-from brazilian.errors.invalid_cpf_error import InvalidCPFError
+from src.brazilian.documents.cpf import CPF
+from src.brazilian.errors.invalid_cpf_error import InvalidCPFError
 
 def test_cpf_constructor_valid():
     cpf = CPF("529.982.247-25")
