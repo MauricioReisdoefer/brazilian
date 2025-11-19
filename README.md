@@ -68,5 +68,5 @@ Para detalhes sobre todas as propriedades e métodos disponíveis, consulte a [D
 ---
 
 [![PyPI version](https://badge.fury.io/py/brazilian.svg)](https://pypi.org/project/brazilian/0.3.1/)
-[![GitHub Stars](https://img.shields.io/github/stars/torvalds/linux.svg?style=flat&label=Stars)](https://github.com/MauricioReisdoefer/brazilian/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/MauricioReisdoefer/brazilian.svg?style=flat&label=Stars)](https://github.com/MauricioReisdoefer/brazilian/stargazers)
 [![PyPI - Downloads](https://pepy.tech/badge/brazilian/month)](https://pepy.tech/project/brazilian)
