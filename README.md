@@ -4,7 +4,7 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 0.3.1, e não depende de biblotecas externas.
+Hoje, a versão mais recente é 0.4.1, e não depende de biblotecas externas.
 
 ```bash
 pip install brazilian
@@ -65,8 +65,19 @@ print(f"Novo CRM gerado (RJ): {novo_crm.formatted}")
 
 Para detalhes sobre todas as propriedades e métodos disponíveis, consulte a [Documentação Completa](/docs).
 
+* [CPF](/docs/CPF.md)
+* [CNPJ](/docs/CNPJ.md)
+* [CEP](/docs/CEP.md)
+* [CRM](/docs/CRM.md)
+* [Date](/docs/Date.md/)
+
+## Contribuição
+
+Para contribuir, acesse:
+[CONTRIBUTING.md](CONTRIBUTING.md)
+
 ---
 
-[![PyPI version](https://badge.fury.io/py/brazilian.svg)](https://pypi.org/project/brazilian/0.3.1/)
+[![PyPI version](https://badge.fury.io/py/brazilian.svg)](https://pypi.org/project/brazilian/0.4.1/)
 [![GitHub Stars](https://img.shields.io/github/stars/MauricioReisdoefer/brazilian.svg?style=flat&label=Stars)](https://github.com/MauricioReisdoefer/brazilian/stargazers)
 [![PyPI - Downloads](https://pepy.tech/badge/brazilian/month)](https://pepy.tech/project/brazilian)
