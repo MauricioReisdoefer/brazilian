@@ -86,6 +86,3 @@ A classe implementa vários métodos mágicos para facilitar a interação:
 | `__eq__` | Permite a comparação de igualdade com outra instância `CPF` ou com uma string de CPF (limpa automaticamente). |
 | `__len__` | Retorna o comprimento do valor do CPF (11 dígitos). |
 | `__hash__` | Permite que instâncias de `CPF` sejam usadas como chaves em dicionários ou elementos em conjuntos. |
-
----
-*Documentação gerada por **Manus AI***

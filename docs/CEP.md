@@ -92,6 +92,3 @@ A classe implementa vários métodos mágicos para facilitar a interação:
 | `__eq__` | Permite a comparação de igualdade com outra instância `CEP` ou com uma string de CEP (limpa automaticamente). |
 | `__len__` | Retorna o comprimento do valor do CEP (8 dígitos). |
 | `__hash__` | Permite que instâncias de `CEP` sejam usadas como chaves em dicionários ou elementos em conjuntos. |
-
----
-*Documentação gerada por **Manus AI***

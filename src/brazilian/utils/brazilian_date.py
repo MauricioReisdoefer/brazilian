@@ -2,10 +2,8 @@ import re
 from dataclasses import dataclass
 from ..errors.invalid_date_error import InvalidDateError
 
-
 def _only_digits(value: str) -> str:
     return re.sub(r'\D', '', str(value or ''))
-
 
 def _split_date(value: str):
     """Aceita formatos: DD-MM-YYYY, DD/MM/YYYY, YYYY-MM-DD, YYYY/MM/DD."""
@@ -29,10 +27,8 @@ def _split_date(value: str):
 
     return day, month, year
 
-
 def _is_leap_year(y: int) -> bool:
     return y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)
-
 
 @dataclass(frozen=True)
 class Date:
