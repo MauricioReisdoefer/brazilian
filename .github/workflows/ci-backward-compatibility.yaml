@@ -33,7 +33,7 @@ jobs:
           if [ "${{ matrix.brazilian-version }}" = "local" ]; then
             pip install ".[pydantic]"
           else
-            pip install "brazilian==${{ matrix.brazilian-version }}[pydantic]"
+            pip install "brazilian[pydantic]==${{ matrix.brazilian-version }}"
           fi
 
       - name: Install test dependencies
