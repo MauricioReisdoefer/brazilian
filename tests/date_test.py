@@ -5,7 +5,7 @@ from brazilian.utils.brazilian_date import (
     _is_leap_year,
     Date
 )
-from src.brazilian.errors.invalid_date_error import InvalidDateError
+from brazilian.errors.invalid_date_error import InvalidDateError
 
 def test_only_digits():
     assert _only_digits("12-03-2025") == "12032025"
