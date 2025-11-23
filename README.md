@@ -4,7 +4,7 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 0.4.1, e não depende de biblotecas externas.
+Hoje, a versão mais recente é 1.0.0, e não depende de biblotecas externas.
 
 ```bash
 pip install brazilian
@@ -60,6 +60,26 @@ print(f"Novo CRM gerado (RJ): {novo_crm.formatted}")
 * **Formatação Flexível:** Oferece métodos para formatar e mascarar os documentos (ex: `XXX.XXX.XXX-XX` ou `***.***.***-XX`).
 * **Geração de Dados:** Métodos estáticos para gerar números válidos e aleatórios.
 * **Informação Contextual:** Extração de dados como a região de emissão (CPF) ou o estado/região (CRM).
+
+## Extras Opcionais
+
+Você pode instalar dependências extras para funcionalidades adicionais:
+
+* **Pydantic**: para usar os modelos do `brazilian.pydantic`  
+
+    ```bash
+    pip install brazilian[pydantic]
+    ```
+
+    Isso adiciona o pydantic como dependência e permite usar os modelos Pydantic para CPF, CNPJ etc.
+
+* **Testes**: para rodar os testes da biblioteca
+
+    ```bash
+    pip install brazilian[test]
+    ```
+
+    Isso instala pytest para facilitar o desenvolvimento e a execução de testes.
 
 ## Documentação Completa
 
