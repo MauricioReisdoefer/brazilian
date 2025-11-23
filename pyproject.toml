@@ -4,38 +4,35 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "brazilian"
-version = "0.4.1"
+version = "1.0.0"
 description = "A complete library about faking / validating brazilian common data"
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [
-    { name = "Maurício Reisdoefer Pereira", email = "mauricio.reisdoefer2009@gmail.com"},
+  { name = "Maurício Reisdoefer Pereira", email = "mauricio.reisdoefer2009@gmail.com" },
 ]
 requires-python = ">=3.9"
 
 dependencies = [
-    # none 
+  
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Operating System :: OS Independent",
 ]
 
 [project.optional-dependencies]
 test = [
-    "pytest",
-    "pytest-cov",
+  "pytest",
+  "pytest-cov",
 ]
 pydantic = [
   "pydantic>=2.0",
-]
-
-
-classifiers = [
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    "Operating System :: OS Independent",
 ]
 
 [project.urls]
