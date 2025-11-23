@@ -1,5 +1,5 @@
 try:
-    from pydantic import BaseModel, BeforeValidator
+    from pydantic import BaseModel, BeforeValidator, field_serializer
 except ImportError as e:
     raise ImportError(
         "Para usar o módulo pydantic do brazilian, instale o extra `brazilian[pydantic]`."
@@ -17,8 +17,6 @@ DateType = Annotated[Date, BeforeValidator(validate_brazilian_date)]
 class DateModel(BaseModel):
     brazilian_date: DateType
 
-    model_config = {
-        "json_encoders": {
-            brazilian_date: lambda c: c.formatted
-        }
-    }
+    @field_serializer("date")
+    def serialize_date(self, date: Date, _info):
+        return date.formatted

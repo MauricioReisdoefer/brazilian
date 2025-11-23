@@ -1,5 +1,5 @@
 try:
-    from pydantic import BaseModel, BeforeValidator
+    from pydantic import BaseModel, BeforeValidator, field_serializer
 except ImportError as e:
     raise ImportError(
         "Para usar o módulo pydantic do brazilian, instale o extra `brazilian[pydantic]`."
@@ -17,8 +17,6 @@ CNPJType = Annotated[CNPJ, BeforeValidator(validate_cnpj)]
 class CNPJModel(BaseModel):
     cnpj: CNPJType
 
-    model_config = {
-        "json_encoders": {
-            CNPJ: lambda c: c.formatted
-        }
-    }
+    @field_serializer("cnpj")
+    def serialize_cnpj(self, cnpj: CNPJ, _info):
+        return cnpj.formatted

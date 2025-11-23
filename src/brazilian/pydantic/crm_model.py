@@ -1,5 +1,5 @@
 try:
-    from pydantic import BaseModel, BeforeValidator
+    from pydantic import BaseModel, BeforeValidator, field_serializer
 except ImportError as e:
     raise ImportError(
         "Para usar o módulo pydantic do brazilian, instale o extra `brazilian[pydantic]`."
@@ -17,8 +17,6 @@ CRMType = Annotated[CRM, BeforeValidator(validate_crm)]
 class CRMModel(BaseModel):
     crm: CRMType
 
-    model_config = {
-        "json_encoders": {
-            CRM: lambda c: c.formatted
-        }
-    }
+    @field_serializer("crm")
+    def serialize_crm(self, crm: CRM, _info):
+        return crm.formatted
