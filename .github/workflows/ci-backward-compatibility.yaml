@@ -17,6 +17,9 @@ jobs:
         brazilian-version: ["1.0.0", "1.0.1"]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -27,14 +30,14 @@ jobs:
 
       - name: Install brazilian (${{ matrix.brazilian-version }})
         run: |
-          if [ "${{ matrix.brazilian-version }}" = "latest" ]; then
-            pip install brazilian
+          if [ "${{ matrix.brazilian-version }}" = "local" ]; then
+            pip install ".[pydantic]"
           else
-            pip install "brazilian==${{ matrix.brazilian-version }}"
+            pip install "brazilian==${{ matrix.brazilian-version }}[pydantic]"
           fi
 
       - name: Install test dependencies
-        run: pip install pytest
+        run: pip install pytest pytest-cov requests
 
       - name: Run tests
-        run: pytest tests/
+        run: pytest tests/ --cov=brazilian --cov-report=xml
