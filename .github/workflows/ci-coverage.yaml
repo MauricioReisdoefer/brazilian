@@ -21,7 +21,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      # Instala dependências
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
