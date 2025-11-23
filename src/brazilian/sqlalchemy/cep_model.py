@@ -5,20 +5,20 @@ except ImportError as e:
     raise ImportError(
         "Para usar o módulo SQLAlchemy do brazilian, instale o extra `brazilian[sqlalchemy]`."
     ) from e
-from ..documents.cpf import CPF
+from ..documents.cep import CEP
 
 try:
-    from ..pydantic.cpf_model import CPFModel
+    from ..pydantic.cep_model import CEPModel
     _PYDANTIC_AVAILABLE = True
 except ImportError:
-    CPFModel = None
+    CEPModel = None
     _PYDANTIC_AVAILABLE = False
 
 
-class SQLAlchemyCPFType(TypeDecorator):
+class SQLAlchemyCEPType(TypeDecorator):
     """
-    Armazena como string limpa (11 dígitos) e retorna como objeto CPFModel (se Pydantic disponível),
-    senão retorna como objeto CPF.
+    Armazena como string limpa (11 dígitos) e retorna como objeto CEPModel (se Pydantic disponível),
+    senão retorna como objeto CEP.
     """
     impl = CHAR(11)
     cache_ok = True
@@ -28,13 +28,13 @@ class SQLAlchemyCPFType(TypeDecorator):
         if value is None:
             return None
         
-        if isinstance(value, CPF):
+        if isinstance(value, CEP):
             return value.value
 
-        if _PYDANTIC_AVAILABLE and isinstance(value, CPFModel):
-            return value.cpf.value
+        if _PYDANTIC_AVAILABLE and isinstance(value, CEPModel):
+            return value.cep.value
 
-        return CPF.clean(value)
+        return CEP.clean(value)
 
     def process_result_value(self, value, dialect):
         """Chamado ao retornar do banco."""
@@ -42,9 +42,9 @@ class SQLAlchemyCPFType(TypeDecorator):
             return None
 
         if _PYDANTIC_AVAILABLE:
-            return CPFModel(cpf=value)
+            return CEPModel(cep=value)
 
-        return CPF(value, strict=False)
+        return CEP(value, strict=False)
 
     def process_literal_param(self, value, dialect):
         return self.process_bind_param(value, dialect)
