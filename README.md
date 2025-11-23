@@ -4,7 +4,7 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 1.0.0, e não depende de biblotecas externas.
+Hoje, a versão mais recente é 1.0.1, e não depende de biblotecas externas.
 
 ```bash
 pip install brazilian
@@ -80,6 +80,22 @@ Você pode instalar dependências extras para funcionalidades adicionais:
     ```
 
     Isso instala pytest para facilitar o desenvolvimento e a execução de testes.
+
+* **SQLAlchemy**: para utilizar classes prontas do SQLAlchemy
+
+    ```bash
+    pip install brazilian[sqlalchemy]
+    ```
+
+    Isso instala módulos necessários para utilizar os SQLAlchemy Types
+
+* **ORM**: Importação completa com suporte para ORM do SQLAlchemy
+
+    ```bash
+    pip install brazilian[orm]
+    ```
+
+    Instala direto o SQLAlchemy junto do Pydantic, onde são utilizados juntos dentro das classes internas.
 
 ## Documentação Completa
 

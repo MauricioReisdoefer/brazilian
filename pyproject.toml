@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "brazilian"
-version = "1.0.0"
+version = "1.0.1"
 description = "A complete library about faking / validating brazilian common data"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -33,6 +33,13 @@ test = [
 ]
 pydantic = [
   "pydantic>=2.0",
+]
+sqlalchemy = [
+  "sqlalchemy>=2.0"
+]
+orm = [
+  "pydantic>=2.0",
+  "sqlalchemy>=2.0"
 ]
 
 [project.urls]
