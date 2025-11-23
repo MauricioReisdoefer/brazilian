@@ -3,7 +3,6 @@ from pydantic import ValidationError
 from src.brazilian.pydantic.cep_model import CEPModel 
 from src.brazilian.documents.cep import CEP
 
-
 def test_valid_cep():
     model = CEPModel(cep="12345678")
     assert isinstance(model.cep, CEP)
