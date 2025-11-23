@@ -10,3 +10,9 @@ CPFType = Annotated[CPF, BeforeValidator(validate_cpf)]
 
 class CPFModel(BaseModel):
     cpf: CPFType
+
+    model_config = {
+        "json_encoders": {
+            CPF: lambda c: c.formatted
+        }
+    }

@@ -10,3 +10,9 @@ CEPType = Annotated[CEP, BeforeValidator(validate_cep)]
 
 class CEPModel(BaseModel):
     cep: CEPType
+
+    model_config = {
+        "json_encoders": {
+            CEP: lambda c: c.formatted
+        }
+    }

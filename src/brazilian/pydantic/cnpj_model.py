@@ -10,3 +10,9 @@ CNPJType = Annotated[CNPJ, BeforeValidator(validate_cnpj)]
 
 class CNPJModel(BaseModel):
     cnpj: CNPJType
+
+    model_config = {
+        "json_encoders": {
+            CNPJ: lambda c: c.formatted
+        }
+    }

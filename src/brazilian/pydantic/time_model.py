@@ -10,3 +10,9 @@ TimeType = Annotated[Time, BeforeValidator(validate_brazilian_time)]
 
 class TimeModel(BaseModel):
     brazilian_time: TimeType
+
+    model_config = {
+        "json_encoders": {
+            brazilian_time: lambda c: c.formatted
+        }
+    }

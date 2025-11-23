@@ -10,3 +10,9 @@ CRMType = Annotated[CRM, BeforeValidator(validate_crm)]
 
 class CRMModel(BaseModel):
     crm: CRMType
+
+    model_config = {
+        "json_encoders": {
+            CRM: lambda c: c.formatted
+        }
+    }
