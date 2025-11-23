@@ -82,21 +82,21 @@ def test_self_to_dict():
     assert d["region"] == "SP"
 
 # ---------- Testes com requests (mock) ----------
-@patch("src.brazilian.documents.cep.requests.get")
+@patch("brazilian.documents.cep.requests.get")
 def test_self_get_location(mock_get):
     mock_get.return_value = MagicMock(status_code=200, json=lambda: {"localidade": "São Paulo"})
     cep = CEP("01001000")
     result = cep.self_get_location()
     assert result["localidade"] == "São Paulo"
 
-@patch("src.brazilian.documents.cep.requests.get")
+@patch("brazilian.documents.cep.requests.get")
 def test_self_get_location_error(mock_get):
     mock_get.return_value = MagicMock(status_code=500)
     cep = CEP("01001000")
     with pytest.raises(Exception):
         cep.self_get_location()
 
-@patch("src.brazilian.documents.cep.requests.get")
+@patch("brazilian.documents.cep.requests.get")
 def test_static_get_location(mock_get):
     mock_get.return_value = MagicMock(status_code=200, json=lambda: {"uf": "SP"})
     result = CEP.get_location(CEP("01001000"))

@@ -31,10 +31,11 @@ jobs:
       - name: Install brazilian (${{ matrix.brazilian-version }})
         run: |
           if [ "${{ matrix.brazilian-version }}" = "local" ]; then
-            pip install '.[pydantic]'
+            pip install ".[pydantic]"
           else
-            pip install 'brazilian==${{ matrix.brazilian-version }}[pydantic]'
+            pip install "brazilian==${{ matrix.brazilian-version }}\[pydantic\]"
           fi
+
 
       - name: Install test dependencies
         run: pip install pytest pytest-cov requests
