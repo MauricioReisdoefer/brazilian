@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
-from src.brazilian.pydantic.cnpj_model import CNPJModel 
-from src.brazilian.documents.cnpj import CNPJ
+from brazilian.pydantic.cnpj_model import CNPJModel 
+from brazilian.documents.cnpj import CNPJ
 
 def test_valid_cnpj():
     model = CNPJModel(cnpj="45.723.174/0001-10")

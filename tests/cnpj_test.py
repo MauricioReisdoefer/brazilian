@@ -1,6 +1,6 @@
 import pytest
-from src.brazilian.documents.cnpj import CNPJ
-from src.brazilian.errors.invalid_cnpj_error import InvalidCNPJError
+from brazilian.documents.cnpj import CNPJ
+from brazilian.errors.invalid_cnpj_error import InvalidCNPJError
 
 VALID_CNPJ = "45.723.174/0001-10"
 VALID_CNPJ_RAW = "45723174000110"

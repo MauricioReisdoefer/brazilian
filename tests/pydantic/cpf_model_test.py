@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
-from src.brazilian.pydantic.cpf_model import CPFModel 
-from src.brazilian.documents.cpf import CPF
+from brazilian.pydantic.cpf_model import CPFModel 
+from brazilian.documents.cpf import CPF
 
 def test_valid_cpf():
     model = CPFModel(cpf="529.982.247-25")

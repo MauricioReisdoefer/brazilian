@@ -1,8 +1,8 @@
 import pytest
 from dataclasses import FrozenInstanceError
 from unittest.mock import patch, MagicMock
-from src.brazilian.errors.invalid_cep_error import InvalidCEPError
-from src.brazilian.documents.cep import CEP, _only_digits
+from brazilian.errors.invalid_cep_error import InvalidCEPError
+from brazilian.documents.cep import CEP, _only_digits
 
 def test__only_digits():
     assert _only_digits("12a-3.4") == "1234"

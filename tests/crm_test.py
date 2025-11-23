@@ -1,6 +1,6 @@
 import pytest
-from src.brazilian.documents.crm import CRM, _clean_crm, UF_LIST
-from src.brazilian.errors.invalid_crm_error import InvalidCRMError
+from brazilian.documents.crm import CRM, _clean_crm, UF_LIST
+from brazilian.errors.invalid_crm_error import InvalidCRMError
 
 def test_clean_crm():
     assert _clean_crm(" 12345-sp ") == "12345SP"

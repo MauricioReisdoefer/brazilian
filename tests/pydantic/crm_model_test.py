@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
-from src.brazilian.pydantic.crm_model import CRMModel 
-from src.brazilian.documents.crm import CRM
+from brazilian.pydantic.crm_model import CRMModel 
+from brazilian.documents.crm import CRM
 
 def test_valid_crm():
     model = CRMModel(crm="123456/SC")

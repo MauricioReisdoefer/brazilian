@@ -1,5 +1,5 @@
 import pytest
-from src.brazilian.utils.brazilian_date import (
+from brazilian.utils.brazilian_date import (
     _only_digits,
     _split_date,
     _is_leap_year,
