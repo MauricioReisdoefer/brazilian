@@ -1,4 +1,10 @@
-from pydantic import BaseModel, BeforeValidator
+try:
+    from pydantic import BaseModel, BeforeValidator
+except ImportError as e:
+    raise ImportError(
+        "Para usar o módulo pydantic do brazilian, instale o extra `brazilian[pydantic]`."
+    ) from e
+    
 from ..documents.cep import CEP
 from typing import Annotated
 
