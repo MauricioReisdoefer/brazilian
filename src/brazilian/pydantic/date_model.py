@@ -17,6 +17,6 @@ DateType = Annotated[Date, BeforeValidator(validate_brazilian_date)]
 class DateModel(BaseModel):
     brazilian_date: DateType
 
-    @field_serializer("date")
+    @field_serializer("brazilian_date")
     def serialize_date(self, date: Date, _info):
         return date.formatted

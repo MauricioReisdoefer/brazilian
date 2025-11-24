@@ -17,6 +17,6 @@ TimeType = Annotated[Time, BeforeValidator(validate_brazilian_time)]
 class TimeModel(BaseModel):
     brazilian_time: TimeType
 
-    @field_serializer("time")
+    @field_serializer("brazilian_time")
     def serialize_time(self, time: Time, _info):
         return time.formatted
