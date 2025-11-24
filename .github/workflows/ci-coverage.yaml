@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=src --cov-report=xml
+          pytest --cov=brazilian --cov-report=xml
 
       - name: Check coverage file
         run: |
