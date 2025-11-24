@@ -117,3 +117,4 @@ Para contribuir, acesse:
 [![PyPI version](https://badge.fury.io/py/brazilian.svg)](https://pypi.org/project/brazilian/0.4.1/)
 [![GitHub Stars](https://img.shields.io/github/stars/MauricioReisdoefer/brazilian.svg?style=flat&label=Stars)](https://github.com/MauricioReisdoefer/brazilian/stargazers)
 [![PyPI - Downloads](https://pepy.tech/badge/brazilian/month)](https://pepy.tech/project/brazilian)
+[![codecov](https://codecov.io/github/MauricioReisdoefer/brazilian/graph/badge.svg?token=SD3T9KYZFR)](https://codecov.io/github/MauricioReisdoefer/brazilian)
