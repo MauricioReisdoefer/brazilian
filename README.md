@@ -4,7 +4,7 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 1.0.1, e não depende de biblotecas externas.
+Hoje, a versão mais recente é 1.0.2, e não depende de biblotecas externas.
 
 ```bash
 pip install brazilian
