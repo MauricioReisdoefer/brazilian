@@ -9,14 +9,14 @@ from ..utils.brazilian_time import Time
 from typing import Annotated
 
 def validate_brazilian_time(value):
-    brazilian_time = Time(value, strict=True)  
-    return brazilian_time
+    time = Time(value, strict=True)  
+    return time
 
 TimeType = Annotated[Time, BeforeValidator(validate_brazilian_time)]
 
 class TimeModel(BaseModel):
-    brazilian_time: TimeType
+    time: TimeType
 
-    @field_serializer("brazilian_time")
+    @field_serializer("time")
     def serialize_time(self, time: Time, _info):
         return time.formatted
