@@ -42,6 +42,13 @@ orm = [
   "sqlalchemy>=2.0"
 ]
 
+all = [
+  "pytest",
+  "pytest-cov",
+  "pydantic>=2.0",
+  "sqlalchemy>=2.0"
+]
+
 [project.urls]
 Homepage = "https://github.com/MauricioReisdoefer/brazilian"
 Documentation = "https://github.com/MauricioReisdoefer/brazilian/tree/main/docs"
