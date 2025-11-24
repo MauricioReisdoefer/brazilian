@@ -1,45 +1,40 @@
-name: Python CI + Coverage
+name: Code Coverage
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        python-version: [3.11]
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install .[pydantic]      
-          pip install pytest pytest-cov requests
-          
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
       - name: Run tests with coverage
         run: |
           pytest --cov=src --cov-report=xml
+
+      - name: Check coverage file
+        run: |
+          ls -l coverage.xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
           files: coverage.xml
           fail_ci_if_error: true
-          verbose: true
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
