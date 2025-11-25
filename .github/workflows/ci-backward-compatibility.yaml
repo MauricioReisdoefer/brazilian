@@ -34,9 +34,9 @@ jobs:
       - name: Install brazilian (${{ matrix.brazilian-version }})
         run: |
           if [ "${{ matrix.brazilian-version }}" = "local" ]; then
-            pip install ".[pydantic]"
+            pip install ".[all]"
           else
-            pip install "brazilian[pydantic]==${{ matrix.brazilian-version }}"
+            pip install "brazilian[all]==${{ matrix.brazilian-version }}"
           fi
 
       - name: Run tests
