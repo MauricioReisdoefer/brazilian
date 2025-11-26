@@ -23,7 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install .[all]
-          python -m pip install pytest pytest-cov
+          python -m pip install pytest pytest-cov importlib
 
 
       - name: Run tests with coverage

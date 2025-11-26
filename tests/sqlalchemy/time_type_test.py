@@ -45,3 +45,16 @@ def test_process_literal_param():
 def test_process_bind_param_none():
     t = SQLAlchemyTimeType()
     assert t.process_bind_param(None, None) == None
+    
+def test_import_without_pydantic(monkeypatch):
+    import importlib
+    import sys
+
+    sys.modules.pop('brazilian.pydantic.time_model', None)
+    monkeypatch.setitem(sys.modules, 'brazilian.pydantic.time_model', None)
+
+    sys.modules.pop('brazilian.sqlalchemy.time_type', None)
+    module = importlib.import_module("brazilian.sqlalchemy.time_type")
+
+    assert module._PYDANTIC_AVAILABLE is False
+    assert module.TimeModel is None
