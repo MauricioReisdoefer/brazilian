@@ -29,12 +29,12 @@ class SQLAlchemyDateType(TypeDecorator):
             return None
         
         if isinstance(value, Date):
-            return value.value
+            return value.formatted
 
         if _PYDANTIC_AVAILABLE and isinstance(value, DateModel):
-            return value.date.value
+            return value.date.formatted
 
-        return Date.clean(value)
+        return Date(value).formatted
 
     def process_result_value(self, value, dialect):
         """Chamado ao retornar do banco."""
