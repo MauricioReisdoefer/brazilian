@@ -4,9 +4,9 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 1.1.1, e só depende do `requests` como biblioteca externa.
+Hoje, a versão mais recente é 1.1.2, e só depende do `requests` como biblioteca externa.
 
-A versão 1.1.1 é a primeira versão estável. Versões anteriores **não terão retro-compatibilidade**.
+A versão 1.1.2 é a primeira versão estável. Versões anteriores **não terão retro-compatibilidade**.
 
 ```bash
 pip install brazilian

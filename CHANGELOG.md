@@ -12,3 +12,9 @@ e este projeto utiliza **Semantic Versioning (SemVer)**.
 Consertamos o Date SQLAlchemy type. O `process_bind_param` retornava incorretamente.
 
 ---
+
+## v1.1.2
+
+Consertamos o Time SQLAlchemy type. O `process_bind_param` retornava incorretamente.
+
+---
