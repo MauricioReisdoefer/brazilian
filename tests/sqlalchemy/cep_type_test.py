@@ -41,3 +41,7 @@ def test_process_result_value_without_pydantic():
 def test_process_literal_param():
     t = SQLAlchemyCEPType()
     assert t.process_literal_param(VALID_CEP_MASKED, None) == VALID_CEP_RAW
+
+def test_process_bind_param_none():
+    t = SQLAlchemyCEPType()
+    assert t.process_bind_param(None, None) == None

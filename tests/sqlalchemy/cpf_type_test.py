@@ -38,3 +38,7 @@ def test_process_result_value_without_pydantic():
 def test_process_literal_param():
     t = SQLAlchemyCPFType()
     assert t.process_literal_param("123.456.789-09", None) == "12345678909"
+
+def test_process_bind_param_none():
+    t = SQLAlchemyCPFType()
+    assert t.process_bind_param(None, None) == None

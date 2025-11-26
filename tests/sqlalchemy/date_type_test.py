@@ -41,3 +41,7 @@ def test_process_result_value_without_pydantic():
 def test_process_literal_param():
     t = SQLAlchemyDateType()
     assert t.process_literal_param(VALID_DATE_MASKED, None) == VALID_DATE_ISO
+
+def test_process_bind_param_none():
+    t = SQLAlchemyDateType()
+    assert t.process_bind_param(None, None) == None
