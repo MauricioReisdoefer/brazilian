@@ -18,3 +18,7 @@ Consertamos o Date SQLAlchemy type. O `process_bind_param` retornava incorretame
 Consertamos o Time SQLAlchemy type. O `process_bind_param` retornava incorretamente.
 
 ---
+
+## v1.1.3
+
+Refatorados todos os tipos Pydantic para aceitarem tanto strings quanto instâncias já validadas das classes correspondentes.

@@ -16,3 +16,8 @@ def test_json_encoder():
     model = CPFModel(cpf="529.982.247-25")
     json_output = model.model_dump_json()
     assert model.cpf.formatted in json_output 
+
+def test_receive_model():
+    model = CPFModel(cpf=CPF("529.982.247-25"))
+    assert isinstance(model.cpf, CPF)
+    assert model.cpf.formatted is not None
