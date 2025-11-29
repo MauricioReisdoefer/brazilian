@@ -5,12 +5,16 @@ except ImportError as e:
         "Para usar o módulo pydantic do brazilian, instale o extra `brazilian[pydantic]`."
     ) from e
     
-from ..documents.cpf import CPF
 from typing import Annotated
+from ..documents.cpf import CPF
 
 def validate_cpf(value):
-    cpf = CPF(value, strict=True)  
-    return cpf
+    
+    if isinstance(value, CPF):
+        return value
+    if not isinstance(value, str):
+        raise TypeError("CPF precisa ser uma string.")
+    return CPF(value, strict=True)
 
 CPFType = Annotated[CPF, BeforeValidator(validate_cpf)]
 

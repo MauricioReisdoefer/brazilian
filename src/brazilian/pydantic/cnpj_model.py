@@ -9,8 +9,11 @@ from ..documents.cnpj import CNPJ
 from typing import Annotated
 
 def validate_cnpj(value):
-    cnpj = CNPJ(value, strict=True)  
-    return cnpj
+    if isinstance(value, CNPJ):
+        return value
+    if not isinstance(value, str):
+        raise TypeError("CNPJ precisa ser uma string.")
+    return CNPJ(value, strict=True)
 
 CNPJType = Annotated[CNPJ, BeforeValidator(validate_cnpj)]
 

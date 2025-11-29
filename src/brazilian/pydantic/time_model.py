@@ -9,8 +9,11 @@ from ..utils.brazilian_time import Time
 from typing import Annotated
 
 def validate_brazilian_time(value):
-    time = Time(value, strict=True)  
-    return time
+    if isinstance(value, Time):
+        return value
+    if not isinstance(value, str):
+        raise TypeError("Time precisa ser uma string.")
+    return Time(value, strict=True)
 
 TimeType = Annotated[Time, BeforeValidator(validate_brazilian_time)]
 

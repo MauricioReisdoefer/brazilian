@@ -9,8 +9,11 @@ from ..documents.crm import CRM
 from typing import Annotated
 
 def validate_crm(value):
-    crm = CRM(value, strict=True)  
-    return crm
+    if isinstance(value, CRM):
+        return value
+    if not isinstance(value, str):
+        raise TypeError("CRM precisa ser uma string.")
+    return CRM(value, strict=True)
 
 CRMType = Annotated[CRM, BeforeValidator(validate_crm)]
 

@@ -9,8 +9,11 @@ from ..documents.cep import CEP
 from typing import Annotated
 
 def validate_cep(value):
-    cep = CEP(value, strict=True)  
-    return cep
+    if isinstance(value, CEP):
+        return value
+    if not isinstance(value, str):
+        raise TypeError("CEP precisa ser uma string.")
+    return CEP(value, strict=True)
 
 CEPType = Annotated[CEP, BeforeValidator(validate_cep)]
 

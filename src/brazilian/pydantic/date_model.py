@@ -9,8 +9,11 @@ from ..utils.brazilian_date import Date
 from typing import Annotated
 
 def validate_brazilian_date(value):
-    date = Date(value, strict=True)  
-    return date
+    if isinstance(value, Date):
+        return value
+    if not isinstance(value, str):
+        raise TypeError("Date precisa ser uma string.")
+    return Date(value, strict=True)
 
 DateType = Annotated[Date, BeforeValidator(validate_brazilian_date)]
 
