@@ -16,3 +16,9 @@ def test_json_encoder():
     model = TimeModel(time="23:10")
     json_output = model.model_dump_json()
     assert model.time.formatted in json_output 
+
+def test_receive_model():
+    model = TimeModel(time=Time("23:10"))
+    assert isinstance(model.time, Time)
+    assert model.time.formatted is not None
+    

@@ -16,3 +16,8 @@ def test_json_encoder():
     model = CNPJModel(cnpj="45.723.174/0001-10")
     json_output = model.model_dump_json()
     assert model.cnpj.formatted in json_output 
+
+def test_receive_model():
+    model = CNPJModel(cnpj=CNPJ("45.723.174/0001-10"))
+    assert isinstance(model.cnpj, CNPJ)
+    assert model.cnpj.formatted is not None

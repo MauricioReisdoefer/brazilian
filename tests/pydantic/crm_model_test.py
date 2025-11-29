@@ -16,3 +16,8 @@ def test_json_encoder():
     model = CRMModel(crm="123456/SC")
     json_output = model.model_dump_json()
     assert model.crm.formatted in json_output 
+
+def test_receive_model():
+    model = CRMModel(crm=CRM("123456/SC"))
+    assert isinstance(model.crm, CRM)
+    assert model.crm.formatted is not None

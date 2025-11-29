@@ -16,3 +16,8 @@ def test_json_encoder():
     model = DateModel(date="24/11/2025")
     json_output = model.model_dump_json()
     assert model.date.formatted in json_output 
+
+def test_receive_model():
+    model = DateModel(date=Date("24/11/2025"))
+    assert isinstance(model.date, Date)
+    assert model.date.formatted is not None
