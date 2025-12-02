@@ -22,3 +22,19 @@ Consertamos o Time SQLAlchemy type. O `process_bind_param` retornava incorretame
 ## v1.1.3
 
 Refatorados todos os tipos Pydantic para aceitarem tanto strings quanto instâncias já validadas das classes correspondentes.
+
+---
+
+## v1.1.4
+
+Adicionando /documents para serem acessados diretamente da raiz. Ou seja, deveria ser usado assim:
+
+```py
+from brazilian import CPF
+```
+
+Diferente da forma anterior:
+
+```py
+from brazilian.documents import CPF
+```
