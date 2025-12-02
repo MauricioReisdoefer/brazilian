@@ -4,9 +4,7 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 1.1.3, e só depende do `requests` como biblioteca externa.
-
-A versão 1.1.2 é a primeira versão estável. Versões anteriores **não terão retro-compatibilidade**.
+Hoje, a versão mais recente é 1.1.4, e só depende do `requests` como biblioteca externa.
 
 ```bash
 pip install brazilian
@@ -19,7 +17,7 @@ pip install brazilian
 A classe `CPF` permite validar, formatar e gerar números de Cadastro de Pessoas Físicas.
 
 ```python
-from brazilian.documents import CPF
+from brazilian import CPF
 
 cpf = CPF("12345678900")
 
@@ -39,7 +37,7 @@ print(f"Novo CPF gerado: {novo_cpf.formatted}")
 A classe `CRM` permite validar, formatar e gerar números de Registro no Conselho Regional de Medicina.
 
 ```python
-from brazilian.documents import CRM
+from brazilian import CRM
 
 # Validação e Formatação
 crm = CRM("123456SP")
