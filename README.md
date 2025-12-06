@@ -4,7 +4,7 @@
 
 ## Instalação
 
-Hoje, a versão mais recente é 1.1.4, e só depende do `requests` como biblioteca externa.
+Hoje, a versão mais recente é 1.2.0, e só depende do `requests` como biblioteca externa.
 
 ```bash
 pip install brazilian
