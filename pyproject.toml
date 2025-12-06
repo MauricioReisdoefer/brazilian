@@ -16,6 +16,7 @@ requires-python = ">=3.9"
 dependencies = [
   "requests"
 ]
+
 classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.9",
@@ -41,7 +42,6 @@ orm = [
   "pydantic>=2.0",
   "sqlalchemy>=2.0"
 ]
-
 all = [
   "pytest",
   "pytest-cov",
@@ -54,3 +54,9 @@ Homepage = "https://github.com/MauricioReisdoefer/brazilian"
 Documentation = "https://github.com/MauricioReisdoefer/brazilian/tree/main/docs"
 Repository = "https://github.com/MauricioReisdoefer/brazilian"
 Issues = "https://github.com/MauricioReisdoefer/brazilian/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
