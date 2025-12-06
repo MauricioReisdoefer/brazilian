@@ -148,6 +148,7 @@ class CEP:
 
     @staticmethod
     def clean(value: str) -> str:
+        """Retorna apenas os dígitos"""
         return _only_digits(value)
 
     @staticmethod

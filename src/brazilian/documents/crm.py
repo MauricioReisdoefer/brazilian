@@ -184,6 +184,7 @@ class CRM:
         
     @staticmethod
     def clean(value: str) -> str:
+        """Retorna apenas os dígitos com a Unidade Federal"""
         return _clean_crm(value)
 
     @staticmethod
