@@ -17,10 +17,10 @@ except ImportError:
 
 class SQLAlchemyDateType(TypeDecorator):
     """
-    Armazena como string limpa (11 dígitos) e retorna como objeto DateModel (se Pydantic disponível),
+    Armazena como string limpa (10 dígitos) [Propriedade Formatted de Data] e retorna como objeto DateModel (se Pydantic disponível),
     senão retorna como objeto Date.
     """
-    impl = CHAR(11)
+    impl = CHAR(10)
     cache_ok = True
 
     def process_bind_param(self, value, dialect):

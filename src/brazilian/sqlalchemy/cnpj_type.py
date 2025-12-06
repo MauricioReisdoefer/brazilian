@@ -17,10 +17,10 @@ except ImportError:
 
 class SQLAlchemyCNPJType(TypeDecorator):
     """
-    Armazena como string limpa (11 dígitos) e retorna como objeto CNPJModel (se Pydantic disponível),
+    Armazena como string limpa (14 dígitos) e retorna como objeto CNPJModel (se Pydantic disponível),
     senão retorna como objeto CNPJ.
     """
-    impl = CHAR(11)
+    impl = CHAR(14)
     cache_ok = True
 
     def process_bind_param(self, value, dialect):

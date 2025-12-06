@@ -17,10 +17,10 @@ except ImportError:
 
 class SQLAlchemyCEPType(TypeDecorator):
     """
-    Armazena como string limpa (11 dígitos) e retorna como objeto CEPModel (se Pydantic disponível),
+    Armazena como string limpa (8 dígitos) e retorna como objeto CEPModel (se Pydantic disponível),
     senão retorna como objeto CEP.
     """
-    impl = CHAR(11)
+    impl = CHAR(8)
     cache_ok = True
 
     def process_bind_param(self, value, dialect):

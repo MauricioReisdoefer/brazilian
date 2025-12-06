@@ -17,10 +17,10 @@ except ImportError:
 
 class SQLAlchemyTimeType(TypeDecorator):
     """
-    Armazena como string limpa (11 dígitos) e retorna como objeto TimeModel (se Pydantic disponível),
+    Armazena como string limpa (5 dígitos) [Propriedade Formatted de Time] e retorna como objeto TimeModel (se Pydantic disponível),
     senão retorna como objeto Time.
     """
-    impl = CHAR(11)
+    impl = CHAR(5)
     cache_ok = True
 
     def process_bind_param(self, value, dialect):
